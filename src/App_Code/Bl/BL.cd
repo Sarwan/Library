@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MainCategory">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAgAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\Bl\MainCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="net.UyghurDev.Library.CategoryHelper">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAKAIAIAAAAAAA=</HashCode>
+      <FileName>App_Code\Bl\CategoryHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="net.UyghurDev.Library.ArticleHelper" Collapsed="true">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAOFAAAIAAIAAAAQAEAIADCAAAAAAAA=</HashCode>
+      <FileName>App_Code\Bl\ArticleHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="fleInfo">
+    <Position X="3.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAAgAQAAIAAAAAAAAAAAQQAgEBAAANEAAA=</HashCode>
+      <FileName>App_Code\Bl\fleInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TopArticleType">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAgAAAAAAAAAAAAAAABAIAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\TopArticleType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

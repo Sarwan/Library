@@ -1,0 +1,90 @@
+﻿
+<asp:Repeater ID="rptTopArticle" runat="server" DataSourceID="odcTop">
+<HeaderTemplate>
+<div class="GFAVCA-KD" style="" aria-hidden="false">
+    <div class="GFAVCA-NC">
+        <asp:LinkButton ID="btnPre" class="gwt-Anchor GFAVCA-NE GFAVCA-PC" OnClick="btnPre_Click" aria-hidden="false" runat="server">
+            <%--<a class="gwt-Anchor GFAVCA-NE GFAVCA-PC" style=""aria-hidden="false">--%>
+            <img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;"
+                        src="http://www.google.com/shopping/clear.cache.gif" style="width: 21px; height: 21px;
+                        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAq0lEQVR42mNgGAXDD4iKivJISkoulJeXt6KagUDDlmhpaT3z8PDYQDUDtbW1n5WWlt75+PFjH9UN/P//PxdFhsrJyYG9TDUDQZGiqalJPQNBwNfX95StrS3I0FPz5s0TpUqMA13WWVBQcCckJOSZn58fKBh4qGLw27dv+0DeDwgIeObm5kYdg0HhSDOD379/j2IwtcIXbvC+ffsWUi3vgwwGRR4QG46WhDgBAGeCd6Lds+NmAAAAAElFTkSuQmCC) no-repeat 0px 0px;"
+                        border="0" class="gwt-Image"><%--</a>--%>
+        </asp:LinkButton>
+        <asp:LinkButton ID="btnNext" class="gwt-Anchor GFAVCA-NE GFAVCA-PC" OnClick="btnNext_Click" aria-hidden="false" runat="server">
+        <%--<a class="gwt-Anchor GFAVCA-NE" style="" aria-hidden="false">--%>
+            <img onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://www.google.com/shopping/clear.cache.gif"
+                style="width: 21px; height: 21px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAuklEQVR42mNgGAVDH4iJiVnJysouFBUV5aGaoXp6eht0dXWfWVtbL9HS0qKOwa9fv+7Lzc294+vr+8zNzY06Bv///5/r7du3faWlpXcCAgKoa/D79+9RDKZKMKAb7OzsvJAqBldWVopGRESc8vb2fgY0/BTFBoKSlLy8/BJQSqiurr4DdHknVQzU1tYGufDOx48f+6huICh8KTJUTk4OlISoZyAIrFu3biEo8VPNQGhSMgRFCtUMHBkAAKw+dyFARYHsAAAAAElFTkSuQmCC) no-repeat 0px 0px;"
+                border="0" class="gwt-Image"><%--</a>--%>
+         </asp:LinkButton>
+                        
+                        <div class="gwt-Label GFAVCA-MC" style="" aria-hidden="false">
+                            <%=_PagerText %>
+                            </div>
+        <div class="gwt-Label GFAVCA-OC">
+            <%=Title %>
+             </div>
+    </div>
+
+
+    <div style="position: relative; overflow: hidden; height: 206px; width: auto;">
+        <div style="position: absolute; overflow: hidden; right: 5px; top: 0px; height: 206px;
+            width: auto;">
+
+            </HeaderTemplate>
+           <%-- <ItemTemplate>
+                        <div class="GFAVCA-AE" >
+                            <a class="gwt-Anchor" target="_blank" href="ArticleInfo.aspx?id= <%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                            <img src="_images/pdficon.png"
+                        class="gwt-Image GFAVCA-OD"></a><div class="GFAVCA-CE GFAVCA-FE" style="line-height: 14px;
+                            max-height: 52px; margin-bottom: 4px;">
+                            <a class="gwt-Anchor" target="_blank" href="ArticleInfo.aspx?id= <%# DataBinder.Eval(Container.DataItem, "ID")%>">
+                                <%# DataBinder.Eval(Container.DataItem, "Title")%></a>
+
+                             
+                                                        </div>
+                    </div>
+            </ItemTemplate>--%>
+            
+
+
+           <%-- <div class="GFAVCA-AE" >
+                <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=1232061_91609600_8471c169&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAMQoxooAQ&amp;pshpl=1&amp;pshplp=2">
+                    <img src="_images/pdficon.png"
+                        class="gwt-Image GFAVCA-OD"></a><div class="GFAVCA-CE GFAVCA-FE" style="line-height: 14px;
+                            max-height: 52px; margin-bottom: 4px;">
+                            <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=1232061_91609600_8471c169&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAMQoxooAQ&amp;pshpl=1&amp;pshplp=2">
+                                تۈركى تىللارنى N-Gram مودىلىدا ئاپتۇماتىك پەرقلەندۈرۈش</a></div>
+            </div>
+            <div class="GFAVCA-AE" >
+                <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=4469330_e603fff9_0543e9dd&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAQQoxooAg&amp;pshpl=1&amp;pshplp=3">
+                    <img src="_images/pdficon.png"
+                        class="gwt-Image GFAVCA-OD"></a><div class="GFAVCA-CE GFAVCA-FE" style="line-height: 14px;
+                            max-height: 52px; margin-bottom: 4px;">
+                            <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=4469330_e603fff9_0543e9dd&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAQQoxooAg&amp;pshpl=1&amp;pshplp=3">
+                                سىتاتىستىكا ئۇسۇلىدىكى خەنزۇچە ئۇيغۇرچە ماشىنا تەرجىمىسى ھەققىدە تەتقىقات</a></div>
+            </div>
+            <div class="GFAVCA-AE" >
+                <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=3310775_a1025ccd_9bbfac94&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAUQoxooAw&amp;pshpl=1&amp;pshplp=4">
+                    <img src="_images/pdficon.png"
+                        class="gwt-Image GFAVCA-OD"></a><div class="GFAVCA-CE GFAVCA-FE" style="line-height: 14px;
+                            max-height: 52px; margin-bottom: 4px;">
+                            <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=3310775_a1025ccd_9bbfac94&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAUQoxooAw&amp;pshpl=1&amp;pshplp=4">
+                                تۈركى تىللار دىۋانىدا قوللىنىلغان سېلىشتۇرما تىلشۇناسلىق</a></div>
+            </div>
+            <div class="GFAVCA-AE" >
+                <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=343061_fa220b39_ccb1cb05&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAYQoxooBA&amp;pshpl=1&amp;pshplp=5">
+                    <img src="_images/pdficon.png"
+                        class="gwt-Image GFAVCA-OD"></a><div class="GFAVCA-CE GFAVCA-FE" style="line-height: 14px;
+                            max-height: 52px; margin-bottom: 4px;">
+                            <a class="gwt-Anchor" href="http://www.google.com/catalogs/i?source=ps-home&amp;id=343061_fa220b39_ccb1cb05&amp;ei=xJpOUJi8E4LBkgW0vQE&amp;ved=0CAYQoxooBA&amp;pshpl=1&amp;pshplp=5">
+                                يۇقۇرى قۇۋۋەتلىك لازىرنىڭ قاشتېشىدىن ئۆتكەندىكى سۇنۇش ھادىسىسى</a></div>
+            </div>--%>
+            <FooterTemplate>
+            
+        </div>
+    </div>
+    
+
+</div>
+</FooterTemplate>
+</asp:Repeater>

@@ -1,0 +1,28 @@
+﻿.ArticleLables {
+     font-size:large;
+    font-weight:300;
+    border-style:solid;
+    border-width:thin;
+    border-color:green;
+    width:100px;
+    background-color:green;
+}
+.LabelLine {
+ width:320px;
+ border:solid;
+ color:green;
+ border-width:1px;
+}
+
+.ArticlePartContiner {
+    margin-bottom:30px;
+    border-width:thin;
+    border-color:green;
+    border-style:groove;
+
+
+}
+
+.singleLine {
+ white-space:nowrap;
+}

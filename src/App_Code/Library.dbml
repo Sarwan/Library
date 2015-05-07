@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Library" Class="LibraryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=OFFICE-PC\SQLEXPRESS;Initial Catalog=Library;User ID=DbUser" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LibraryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Abstraction" Member="Abstractions">
+    <Type Name="Abstraction">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Language" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Abstract" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Article_Abstraction" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WebPage" Member="WebPages">
+    <Type Name="WebPage">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageTitle" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="PageFile" Type="System.String" DbType="NChar(64)" CanBeNull="true" />
+      <Association Name="WebPage_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="PageID" Type="UserRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Author" Member="Authors">
+    <Type Name="Author">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuthorName" Type="System.String" DbType="NChar(128)" CanBeNull="true" />
+      <Association Name="Article_Author" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Classification" Member="Classifications">
+    <Type Name="Classification">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameUy" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="NameEn" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Association Name="Classification_Article" Member="Articles" ThisKey="ID" OtherKey="Classification" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Eza" Member="Ezas">
+    <Type Name="Eza">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NChar(16)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="Tel" Type="System.String" DbType="NChar(16)" CanBeNull="true" />
+      <Column Name="RegisteredTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Eza_Favorite" Member="Favorites" ThisKey="ID" OtherKey="UserID" Type="Favorite" />
+      <Association Name="Eza_Log" Member="Logs" ThisKey="ID" OtherKey="UserID" Type="Log" />
+      <Association Name="Eza_UserRole" Member="UserRoles" ThisKey="ID" OtherKey="UserID" Type="UserRole" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Favorite" Member="Favorites">
+    <Type Name="Favorite">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Eza_Favorite" Member="Eza" ThisKey="UserID" OtherKey="ID" Type="Eza" IsForeignKey="true" />
+      <Association Name="Article_Favorite" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FileType" Member="FileTypes">
+    <Type Name="FileType">
+      <Column Name="ID" Type="System.Byte" DbType="TinyInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Extension" Type="System.String" DbType="NChar(8)" CanBeNull="true" />
+      <Column Name="MimeType" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="Icon" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Association Name="FileType_File" Member="Files" ThisKey="ID" OtherKey="FileType" Type="File" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KeyWord" Member="KeyWords">
+    <Type Name="KeyWord">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="KeyWord" Member="KeyWord1" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Article_KeyWord" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Language" Member="Languages">
+    <Type Name="Language">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NameEn" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="NameUy" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="NameNative" Type="System.String" DbType="NChar(32)" CanBeNull="true" />
+      <Column Name="IsoCode" Type="System.String" DbType="NChar(2) NOT NULL" CanBeNull="false" />
+      <Association Name="Language_Title" Member="Titles" ThisKey="ID" OtherKey="Language" Type="Title" />
+      <Association Name="Language_Article" Member="Articles" ThisKey="ID" OtherKey="Language" Type="Article" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Log]" Member="Logs">
+    <Type Name="Log">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="AddDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Eza_Log" Member="Eza" ThisKey="UserID" OtherKey="ID" Type="Eza" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Replay" Member="Replays">
+    <Type Name="Replay">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="ReplayContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReplayDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Article_Replay" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Title" Member="Titles">
+    <Type Name="Title">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Member="Title1" Type="System.String" DbType="NChar(512)" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Language_Title" Member="Language1" ThisKey="Language" OtherKey="ID" Type="Language" IsForeignKey="true" />
+      <Association Name="Article_Title" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRole" Member="UserRoles">
+    <Type Name="UserRole">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Eza_UserRole" Member="Eza" ThisKey="UserID" OtherKey="ID" Type="Eza" IsForeignKey="true" />
+      <Association Name="WebPage_UserRole" Member="WebPage" ThisKey="PageID" OtherKey="ID" Type="WebPage" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Article" Member="Articles">
+    <Type Name="Article">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Language" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ArticleContent" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Classification" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DownCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VisitCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ReadCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Deleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Recommend" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="Article_Abstraction" Member="Abstractions" ThisKey="ID" OtherKey="ArticleID" Type="Abstraction" />
+      <Association Name="Article_Author" Member="Authors" ThisKey="ID" OtherKey="ArticleID" Type="Author" />
+      <Association Name="Article_Favorite" Member="Favorites" ThisKey="ID" OtherKey="ArticleID" Type="Favorite" />
+      <Association Name="Article_KeyWord" Member="KeyWords" ThisKey="ID" OtherKey="ArticleID" Type="KeyWord" />
+      <Association Name="Article_Replay" Member="Replays" ThisKey="ID" OtherKey="ArticleID" Type="Replay" />
+      <Association Name="Article_Title" Member="Titles" ThisKey="ID" OtherKey="ArticleID" Type="Title" />
+      <Association Name="Article_File" Member="Files" ThisKey="ID" OtherKey="ArticleID" Type="File" />
+      <Association Name="Classification_Article" Member="Classification1" ThisKey="Classification" OtherKey="ID" Type="Classification" IsForeignKey="true" />
+      <Association Name="Language_Article" Member="Language1" ThisKey="Language" OtherKey="ID" Type="Language" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[File]" Member="Files">
+    <Type Name="File">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ArticleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FileType" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="FilePath" Type="System.String" DbType="NChar(512)" CanBeNull="true" />
+      <Column Name="FileTitle" Type="System.String" DbType="NChar(255)" CanBeNull="true" />
+      <Column Name="AddTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Enable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Article_File" Member="Article" ThisKey="ArticleID" OtherKey="ID" Type="Article" IsForeignKey="true" />
+      <Association Name="FileType_File" Member="FileType1" ThisKey="FileType" OtherKey="ID" Type="FileType" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
